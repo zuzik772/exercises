@@ -46,3 +46,45 @@ function clearResults() {
     myNode.removeChild(myNode.lastChild);
   }
 }
+
+// help from the teacher
+
+window.addEventListener("DOMContentLoaded", setUp),
+  function setUp() {
+    document.getElementById("calculate").addEventListener("click", calcClick);
+    document.getElementById("clear").addEventListener("click", clearClick);
+  };
+
+function calcClick() {
+  console.log("CALC");
+  console.log("operator is:", document.getElementById("operator").value);
+  const opValue = document.getElementById("operator").value;
+  const firstNumber = Number(document.getElementById("firstnumber").value);
+  const secondNumber = Number(document.getElementById("secondnumber").value);
+  let result;
+  if (opValue === "add") {
+    result = firstNumber + secondNumber;
+  }
+  if (opValue === "min") {
+    result = firstNumber - secondNumber;
+  }
+  if (opValue === "sub") {
+    result = firstNumber / secondNumber;
+  }
+  if (opValue === "mul") {
+    result = firstNumber * secondNumber;
+  }
+  let numberOfDecimals = 0;
+  // const numberOfDecimals = Number(document.getElementById("decimals").value);
+  console.log("checkbox", document.getElementById("doround".checked));
+
+  if (document.getElementById("doround".checked)) {
+    numberOfDecimals = document.getElementById("decimals").value;
+  }
+  console.log("result", result.toFixed(numberOfDecimals));
+  console.log("typeof numberof decimals", typeof numberOfDecimals);
+}
+
+function clearClick() {
+  console.log("CLEAR");
+}
