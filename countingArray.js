@@ -9,9 +9,7 @@ function loop() {
   const finalArray = array.unshift(count);
 
   const result = Array.from(array);
-  //   console.log(finalArray);
-  console.log(result);
-  if (count < 9) {
-    setTimeout(loop, 500);
-  }
+
+  console.log(result.slice(0, 9));
+  setTimeout(loop, 500);
 }
