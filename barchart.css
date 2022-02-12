@@ -9,6 +9,6 @@ main {
 .bar {
   width: 25px;
   height: 0;
-  background-color: rgb(163, 141, 192);
+  background-color: lightblue;
   margin: 0 auto;
 }

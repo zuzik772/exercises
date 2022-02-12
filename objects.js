@@ -34,3 +34,15 @@ if (person2 == person1) {
 } else {
   console.log("no");
 }
+
+console.log("new exercise");
+const Animal = {
+  name: "",
+  type: "unknown",
+  desc: "",
+  age: 0,
+};
+const animal = Object.create(Animal);
+Animal.image = "image.jpg";
+console.log(Animal);
+console.log(animal);
