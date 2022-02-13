@@ -1,8 +1,8 @@
 let counter;
 let newEl;
-let myTimeout = setTimeout(function () {
-  console.log("count", counter);
-}, 3000 * (counter + 1));
+// let myTimeout = setTimeout(function () {
+//   console.log("count", counter);
+// }, 3000 * (counter + 1));
 // let art = document.querySelectorAll(".artwork");
 let artwork1 = document.querySelector("#artwork1");
 let artwork2 = document.querySelector("#artwork2");
@@ -24,7 +24,7 @@ function start() {
   for (let i = 100; i <= 300; i += 20) {
     counter = i;
     addArt1();
-    myTimeout;
+    // myTimeout;
   }
 }
 function addArt1() {
@@ -38,7 +38,7 @@ function addArt1() {
 for (let i = 0; i <= 90; i += 10) {
   counter = i;
   addArt2();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt2() {
@@ -53,7 +53,7 @@ function addArt2() {
 for (let i = 0; i <= 200; i += 10) {
   counter = i;
   addArt3();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt3() {
@@ -67,7 +67,7 @@ function addArt3() {
 for (let i = -90; i <= 90; i += 20) {
   counter = i;
   addArt4();
-  myTimeout;
+  // myTimeout;
   console.log("i", i);
 }
 
@@ -83,7 +83,7 @@ function addArt4() {
 for (let i = 1; i <= 412; i *= 2) {
   counter = i;
   addArt5();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt5() {
@@ -97,7 +97,7 @@ function addArt5() {
 for (let i = -20; i <= 45; i += 5) {
   counter = i;
   addArt6();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt6() {
@@ -113,7 +113,7 @@ function addArt6() {
 for (let i = 0; i <= 200; i += 10) {
   counter = i;
   addArt7();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt7() {
@@ -128,7 +128,7 @@ function addArt7() {
 for (let i = 50; i <= 200; i += 10) {
   counter = i;
   addArt8();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt8() {
@@ -145,7 +145,7 @@ for (let i = 50; i <= 200; i += 30) {
   counter = i;
   addArt9();
   addArt10();
-  myTimeout;
+  // myTimeout;
 }
 
 function addArt9() {
