@@ -35,7 +35,7 @@ function prepareObjects(jsonData) {
     animal.desc = animalData[2];
     animal.age = jsonObject.age;
     // console.log("prototype", Animal);
-    // console.log("animal", animal);
+
     allAnimals.push(animal);
 
     // TODO: MISSING CODE HERE !!!
