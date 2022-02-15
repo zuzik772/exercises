@@ -31,7 +31,9 @@ function hexToRGB(hexStr) {
   console.log(b);
   bNumber = parseInt(b, 16);
   console.log(bNumber);
+  return "rgb color is " + r + "," + g + "," + b;
 }
+
 hexToRGB(hexStr);
 // let numberAsHex = "f3";
 // let numberAsInteger = parseInt(numberAsHex, 16); //second argument is the base
