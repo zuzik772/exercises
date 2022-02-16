@@ -17,17 +17,17 @@ function cssToRGB(cssStr) {
 // HEX to RGB function
 // let hexStr = "#c0ffee";
 function hexToRGB(hexStr) {
-   r = hexStr.substring(1, 3);
+  r = hexStr.substring(1, 3);
   console.log(r);
   rNumber = parseInt(r, 16);
   console.log(rNumber);
 
-   g = hexStr.substring(3, 5);
+  g = hexStr.substring(3, 5);
   console.log(g);
   gNumber = parseInt(g, 16);
   console.log(gNumber);
 
-   b = hexStr.substring(5);
+  b = hexStr.substring(5);
   console.log(b);
   bNumber = parseInt(b, 16);
   console.log(bNumber);
@@ -51,10 +51,10 @@ function rgbToHEX(r, g, b) {
   g = rgbObject.g;
   b = rgbObject.b;
   hexStr = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-  console.log(hexStr);
+  return hexStr;
 }
 
-rgbToHEX(rgbObject);
+console.log(rgbToHEX(rgbObject));
 
 // RGB values between 0-255
 // ff (full colour) = 255, the higheste value in RGB

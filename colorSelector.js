@@ -34,8 +34,8 @@ function hexToRGB(hexStr) {
   b = hexStr.substring(5);
   bNumber = parseInt(b, 16);
   // return "rgb color is " + r + "," + g + "," + b;
-  console.log(r, g, b);
-  return "rgb color is " + rNumber + "," + gNumber + "," + bNumber;
+  console.log(rNumber, gNumber, bNumber);
+  return rNumber + "," + gNumber + "," + bNumber;
 }
 // hexToRGB(hexStr);
 
@@ -99,4 +99,5 @@ function rgbToHSL(rgbString) {
   l *= 100;
 
   return h.toFixed() + "%, " + s.toFixed() + "%, " + l.toFixed() + "%";
+  // return { h, s, l };
 }
