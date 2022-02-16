@@ -4,12 +4,11 @@
 // capitalization using function and parameters
 
 function capitalize(str) {
-  str = str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
-  return str;
+  capFN = str.substring(0, 1).toUpperCase() + str.substring(1, str.indexOf(" ")).toLowerCase();
+  capMN = str.substring(str.indexOf(" ") + 1, str.indexOf(" ") + 2).toUpperCase() + str.substring(str.indexOf(" ") + 2, str.lastIndexOf(" ")).toLowerCase();
+  capLN = str.substring(str.lastIndexOf(" ") + 1, str.lastIndexOf(" ") + 2).toUpperCase() + str.substring(str.lastIndexOf(" ") + 2).toLowerCase(); //,str.lastIndexOf((" ") +2).toUpperCase().toLowerCase());
+  return { capFN, capMN, capLN };
 }
-
-console.log(capitalize("agAtka"));
-
-const name = "pETer";
-const cap = capitalize(name);
-console.log(cap);
+// const name = "pETer";
+const string = "agatka mna szulc";
+console.log(capitalize(string));

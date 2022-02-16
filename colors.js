@@ -15,26 +15,27 @@ function cssToRGB(cssStr) {
 // cssToRGB(cssOtherStr);
 
 // HEX to RGB function
-let hexStr = "#c0ffee";
+// let hexStr = "#c0ffee";
 function hexToRGB(hexStr) {
-  r = hexStr.substring(1, 3);
+   r = hexStr.substring(1, 3);
   console.log(r);
   rNumber = parseInt(r, 16);
   console.log(rNumber);
 
-  g = hexStr.substring(3, 5);
+   g = hexStr.substring(3, 5);
   console.log(g);
   gNumber = parseInt(g, 16);
   console.log(gNumber);
 
-  b = hexStr.substring(5);
+   b = hexStr.substring(5);
   console.log(b);
   bNumber = parseInt(b, 16);
   console.log(bNumber);
-  return "rgb color is " + r + "," + g + "," + b;
+  return "rgb color is " + rNumber + "," + gNumber + "," + bNumber;
 }
 
-hexToRGB(hexStr);
+let result = hexToRGB("#c0ffee");
+console.log("this is result" + result);
 // let numberAsHex = "f3";
 // let numberAsInteger = parseInt(numberAsHex, 16); //second argument is the base
 // console.log("number  as integer", numberAsInteger);

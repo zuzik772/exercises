@@ -23,38 +23,42 @@ function displayValues() {
 }
 
 // // HEX to RGB
-// // let hexStr = "#c0ffee";
-// function hexToRGB(hexStr) {
-//   r = hexStr.substring(1, 3);
-//   rNumber = parseInt(r, 16);
+// let hexStr = "#c0ffee";
+function hexToRGB(hexStr) {
+  r = hexStr.substring(1, 3);
+  rNumber = parseInt(r, 16);
 
-//   g = hexStr.substring(3, 5);
-//   gNumber = parseInt(g, 16);
+  g = hexStr.substring(3, 5);
+  gNumber = parseInt(g, 16);
 
-//   b = hexStr.substring(5);
-//   bNumber = parseInt(b, 16);
-//   return "rgb color is " + r + "," + g + "," + b;
-// }
-// // hexToRGB(hexStr);
+  b = hexStr.substring(5);
+  bNumber = parseInt(b, 16);
+  // return "rgb color is " + r + "," + g + "," + b;
+  console.log(r, g, b);
+  return "rgb color is " + rNumber + "," + gNumber + "," + bNumber;
+}
+// hexToRGB(hexStr);
 
 //HEX to RGB
-function hexToRGB(hexstring) {
-  let red = lettersToNumbers(hexstring.charAt(1)) * 16 + lettersToNumbers(hexstring.charAt(2));
-  let green = lettersToNumbers(hexstring.charAt(3)) * 16 + lettersToNumbers(hexstring.charAt(4));
-  let blue = lettersToNumbers(hexstring.charAt(5)) * 16 + lettersToNumbers(hexstring.charAt(6));
-  return red + ", " + green + ", " + blue;
-}
+// function hexToRGB(hexstring) {
+//   let red = lettersToNumbers(hexstring.charAt(1)) * 16 + lettersToNumbers(hexstring.charAt(2));
+//   let green = lettersToNumbers(hexstring.charAt(3)) * 16 + lettersToNumbers(hexstring.charAt(4));
+//   let blue = lettersToNumbers(hexstring.charAt(5)) * 16 + lettersToNumbers(hexstring.charAt(6));
+//   return red + ", " + green + ", " + blue;
+//   //   console.log(red, green, blue);
+//   //   return { red, green, blue };
+// }
 
-function lettersToNumbers(character) {
-  let number = character.toUpperCase().charCodeAt(0);
-  if (number > 64) {
-    return number - 55;
-  } else return Number(character);
-}
+// function lettersToNumbers(character) {
+//   let number = character.toUpperCase().charCodeAt(0);
+//   if (number > 64) {
+//     return number - 55;
+//   } else return Number(character);
+// }
 
 // RGB to HSL
 function rgbToHSL(rgbString) {
-  let stringArray = rgbString.split(", ");
+  let stringArray = rgbString.split(",");
   let r = stringArray[0];
   let g = stringArray[1];
   let b = stringArray[2];
