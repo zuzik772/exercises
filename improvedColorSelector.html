@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Selector</title>
+    <link rel="stylesheet" href="colorSelector.css" />
+  </head>
+  <body>
+    <h1>Improved Color Selector</h1>
+
+      <div class="flex">
+          <aside>
+            <h2>Color:</h2>
+            <div id="color"></div>
+          </aside>
+              </section>    <section>
+          <input type="color" id="colorpicker" oninput="getColor(this);displayValues();"/>
+          <div>
+            <h2>HEX:</h2>
+            <div id="hex"></div>
+          </div>
+          <div>
+            <h2>RGB:</h2>
+            <div id="rgb"></div>
+          </div>
+          <div>
+            <h2>HSL:</h2>
+            <div id="hsl"></div>
+          </div>
+              </section>
+      </div>
+    <script src="colorSelector.js"></script>
+  </body>
+</html>

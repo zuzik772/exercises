@@ -4,11 +4,11 @@ function getColor(colorpicker) {
   return colorpicker.value;
 }
 
-function display(container
-  , color) {
+function display(container, color) {
   container.textContent = color;
 }
 
+// Showing the color as a colored box in CSS
 function displayColor(container, rgbColorStr) {
   container.style.backgroundColor = `rgb(${rgbColorStr})`;
 }
@@ -23,8 +23,13 @@ function displayValues() {
   displayColor(document.querySelector("#color"), colorRGB);
 }
 
+// Getting a selected color from the user
+// Showing a selected color (possibly a delegator for the following function calls)
+// Showing the color as hex
+// Showing the color as RGB
+// Showing the color as HSL
+
 // // HEX to RGB
-// let hexStr = "#c0ffee";
 function hexToRGB(hexStr) {
   r = hexStr.substring(1, 3);
   rNumber = parseInt(r, 16);
@@ -34,28 +39,35 @@ function hexToRGB(hexStr) {
 
   b = hexStr.substring(5);
   bNumber = parseInt(b, 16);
-  // return "rgb color is " + r + "," + g + "," + b;
-  console.log(rNumber, gNumber, bNumber);
+  console.log("hez to RGB", rNumber, gNumber, bNumber);
   return rNumber + "," + gNumber + "," + bNumber;
 }
-// hexToRGB(hexStr);
 
-//HEX to RGB
-// function hexToRGB(hexstring) {
-//   let red = lettersToNumbers(hexstring.charAt(1)) * 16 + lettersToNumbers(hexstring.charAt(2));
-//   let green = lettersToNumbers(hexstring.charAt(3)) * 16 + lettersToNumbers(hexstring.charAt(4));
-//   let blue = lettersToNumbers(hexstring.charAt(5)) * 16 + lettersToNumbers(hexstring.charAt(6));
-//   return red + ", " + green + ", " + blue;
-//   //   console.log(red, green, blue);
-//   //   return { red, green, blue };
-// }
+// RGB to CSS (string)
+function rgbToCSS(rNum, gNum, bNum) {
+  let rString = rNum.toString();
+  let gString = gNum.toString();
+  let bString = bNum.toString();
+  let cssStr = `rgb(${rString}, ${gString}, ${bString} )`;
+  console.log(`rgb(${rString}, ${gString}, ${bString} )`);
+  return cssStr;
+}
+let rgbToCSSResult = rgbToCSS(192, 13, 1);
+console.log(rgbToCSSResult);
 
-// function lettersToNumbers(character) {
-//   let number = character.toUpperCase().charCodeAt(0);
-//   if (number > 64) {
-//     return number - 55;
-//   } else return Number(character);
-// }
+// RGB to HEX using object as parameter
+let rgbObject = {
+  r: 186,
+  g: 218,
+  b: 85,
+};
+function rgbToHEX(rgbObject) {
+  let r = rgbObject.r;
+  let g = rgbObject.g;
+  let b = rgbObject.b;
+  hexStr = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+  return hexStr;
+}
 
 // RGB to HSL
 function rgbToHSL(rgbString) {

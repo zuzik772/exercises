@@ -10,9 +10,24 @@ function cssToRGB(cssStr) {
   b = cssStr.substring(cssStr.lastIndexOf(",") + 1, cssStr.lastIndexOf(")")).trim(); //1
   let bNumber = parseInt(b);
   console.log(bNumber);
+  // return { rNumber, gNumber, bNumber };
+  return `${rNumber}, ${gNumber}, ${bNumber}`;
 }
-// let cssOtherStr = "rgb(192, 13, 1)";
-// cssToRGB(cssOtherStr);
+let cssOtherStr = "rgb(192, 13, 1)";
+let rgbResult = cssToRGB(cssOtherStr);
+console.log(rgbResult);
+
+// RGB to CSS (string)
+function rgbToCSS(rNum, gNum, bNum) {
+  let rString = rNum.toString();
+  let gString = gNum.toString();
+  let bString = bNum.toString();
+  let cssStr = `rgb(${rString}, ${gString}, ${bString})`;
+  console.log(`rgb(${rString}, ${gString}, ${bString})`);
+  return cssStr;
+}
+let rgbToCSSResult = rgbToCSS(192, 13, 1);
+console.log("we are here:", rgbToCSSResult);
 
 // HEX to RGB function
 // let hexStr = "#c0ffee";

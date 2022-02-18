@@ -1,0 +1,42 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+section div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+section {
+  flex-direction: column;
+}
+
+section div {
+  margin-left: 2rem;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+#color {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(26, 180, 180);
+  border: 1px solid #000;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
