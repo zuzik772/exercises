@@ -31,11 +31,11 @@ function hexToRGB(hexStr) {
   console.log(b);
   bNumber = parseInt(b, 16);
   console.log(bNumber);
-  return "rgb color is " + rNumber + "," + gNumber + "," + bNumber;
+  return rNumber + "," + gNumber + "," + bNumber;
 }
 
 let result = hexToRGB("#c0ffee");
-console.log("this is result" + result);
+console.log("this is result " + result);
 // let numberAsHex = "f3";
 // let numberAsInteger = parseInt(numberAsHex, 16); //second argument is the base
 // console.log("number  as integer", numberAsInteger);
