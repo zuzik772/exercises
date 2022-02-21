@@ -1,12 +1,12 @@
 `use-strict`;
 
-window.addEventListener("DOMLoadedContent", start);
+window.addEventListener("load", start);
 const colorData = {};
 function start() {
   colorData.input = document.querySelector("#colorpicker");
-  colorData.hex = document.querySelector(".hex");
-  colorData.rgb = document.querySelector(".rgb");
-  colorData.hsl = document.querySelector(".hsl");
+  colorData.hex = document.querySelector("#hex");
+  colorData.rgb = document.querySelector("#rgb");
+  colorData.hsl = document.querySelector("#hsl");
   colorData.colorBox = document.querySelector("#color");
 
   colorData.input.addEventListener("input", getColor);
