@@ -2,8 +2,8 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
-let allAnimals = [],
-  filter = "all";
+let allAnimals = [];
+let filter = "all";
 
 // The prototype for all animals:
 const Animal = {
@@ -15,7 +15,6 @@ const Animal = {
 
 function start() {
   console.log("ready");
-
   // TODO: Add event-listeners to filter and sort buttons
   // document.querySelector("[data-filter=cat]").addEventListener("click", buildFilteredList);
   const filterBtns = document.querySelectorAll("[data-action=filter]");
@@ -62,8 +61,8 @@ function displayList(animals) {
   document.querySelector("#list tbody").innerHTML = "";
 
   // build a new list
-
   animals.forEach(displayAnimal);
+  animals.sort(compareName);
 }
 
 function displayAnimal(animal) {
@@ -83,6 +82,7 @@ function displayAnimal(animal) {
 function buildFilteredList() {
   let filteredList;
   filter = this.dataset.filter;
+  console.log(this);
   if (filter === "cat") {
     console.log("its a cat");
     filteredList = filterAnimal(isCat);
@@ -91,13 +91,12 @@ function buildFilteredList() {
   } else if (filter === "all") {
     filteredList = filterAnimal(isAllAnimal);
   }
-
+  filteredList.sort(compareName);
   displayList(filteredList);
 }
 
 function filterAnimal(filteredAnimal) {
   let filteredAnimals = allAnimals.filter(filteredAnimal);
-
   return filteredAnimals;
 }
 
@@ -121,4 +120,30 @@ function isDog(animal) {
   }
 }
 
+function isDragon(animal) {
+  if (animal.type === "dragon") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isHorse(animal) {
+  if (animal.type === "horse") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // filter function as argument
+
+// sort function
+function compareName(a, b) {
+  console.log("compare name");
+  if (a.name < b.name) {
+    return -1;
+  } else {
+    return 1;
+  }
+}

@@ -1,82 +1,50 @@
-"use-strict";
-let colorInput = document.querySelector("#colorpicker");
-function getColor(colorpicker) {
-  return colorpicker.value;
+`use-strict`;
+
+window.addEventListener("DOMLoadedContent", start);
+const colorData = {};
+function start() {
+  colorData.input = document.querySelector("#colorpicker");
+  colorData.hex = document.querySelector(".hex");
+  colorData.rgb = document.querySelector(".rgb");
+  colorData.hsl = document.querySelector(".hsl");
+  colorData.colorBox = document.querySelector("#color");
+
+  colorData.input.addEventListener("input", getColor);
 }
 
-function display(container, color) {
-  container.textContent = color;
+function getColor() {
+  changeColor(colorData.input.value);
 }
 
-// Showing the color as a colored box in CSS
-function displayColor(container, rgbColorStr) {
-  container.style.backgroundColor = `rgb(${rgbColorStr})`;
+function changeColor() {
+  colorData.colorBox.style.backgoundColor = `${getColor}`;
+  showHEX(getColor);
 }
 
-function displayValues() {
-  let colorHEX = getColor(colorInput);
-  let colorRGB = hexToRGB(colorHEX);
-  let colorHSL = rgbToHSL(colorRGB);
-  display(document.querySelector("#hex"), colorHEX);
-  display(document.querySelector("#rgb"), colorRGB);
-  display(document.querySelector("#hsl"), colorHSL);
-  displayColor(document.querySelector("#color"), colorRGB);
+function showHEX(hexColor) {
+  colorData.hex.textContent = hexColor;
+  console.log(hexColor);
+  hexToRGB(hexColor);
 }
 
-// Getting a selected color from the user
-// Showing a selected color (possibly a delegator for the following function calls)
-// Showing the color as hex
-// Showing the color as RGB
-// Showing the color as HSL
-
-// // HEX to RGB
 function hexToRGB(hexStr) {
-  r = hexStr.substring(1, 3);
-  rNumber = parseInt(r, 16);
-
-  g = hexStr.substring(3, 5);
-  gNumber = parseInt(g, 16);
-
-  b = hexStr.substring(5);
-  bNumber = parseInt(b, 16);
-  console.log("hez to RGB", rNumber, gNumber, bNumber);
-  return rNumber + "," + gNumber + "," + bNumber;
+  let r = parseInt(hexStr.substring(1, 3), 16);
+  let g = parseInt(hexStr.substring(3, 5), 16);
+  let b = parseInt(hexStr.substring(5), 16);
+  let rgbObject = { r, g, b };
+  showRGB(rgbObject);
 }
 
-// RGB to CSS (string)
-function rgbToCSS(rNum, gNum, bNum) {
-  let rString = rNum.toString();
-  let gString = gNum.toString();
-  let bString = bNum.toString();
-  let cssStr = `rgb(${rString}, ${gString}, ${bString} )`;
-  console.log(`rgb(${rString}, ${gString}, ${bString} )`);
-  return cssStr;
+function showRGB(rgbObject) {
+  colorData.rgb.textContent = `${rgbObject.r},${rgbObject.g},${rgbObject.b}`;
+  rgbToHSL(rgbObject);
 }
-let rgbToCSSResult = rgbToCSS(192, 13, 1);
-console.log(rgbToCSSResult);
 
-// RGB to HEX using object as parameter
-let rgbObject = {
-  r: 186,
-  g: 218,
-  b: 85,
-};
-function rgbToHEX(rgbObject) {
+function rgbToHSL(rgbObject) {
   let r = rgbObject.r;
   let g = rgbObject.g;
   let b = rgbObject.b;
-  hexStr = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-  return hexStr;
-}
 
-// RGB to HSL
-function rgbToHSL(rgbString) {
-  let stringArray = rgbString.split(",");
-  let r = stringArray[0];
-  let g = stringArray[1];
-  let b = stringArray[2];
-
-  // given code
   r /= 255;
   g /= 255;
   b /= 255;
@@ -111,6 +79,15 @@ function rgbToHSL(rgbString) {
   s *= 100;
   l *= 100;
 
-  return h.toFixed() + "%, " + s.toFixed() + "%, " + l.toFixed() + "%";
-  // return { h, s, l };
+  // console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
+
+  let hslObject = { h, s, l };
+  showHSL(hslObject);
+}
+
+function showHSL(hslObject) {
+  let h = hslObject.h.toFixed(0) + "%";
+  let s = hslObject.s.toFixed(0) + "%";
+  let l = hslObject.l.toFixed(0) + "%";
+  colorData.hsl.textContent = h + s + l;
 }

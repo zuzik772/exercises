@@ -55,6 +55,18 @@ console.log("this is result " + result);
 // let numberAsInteger = parseInt(numberAsHex, 16); //second argument is the base
 // console.log("number  as integer", numberAsInteger);
 
+// RGB to CSS (string)
+function rgbToCSS(rNum, gNum, bNum) {
+  let rString = rNum.toString();
+  let gString = gNum.toString();
+  let bString = bNum.toString();
+  let cssStr = `rgb(${rString}, ${gString}, ${bString} )`;
+  console.log(`rgb(${rString}, ${gString}, ${bString} )`);
+  return cssStr;
+}
+let rgbToCSSResult = rgbToCSS(192, 13, 1);
+console.log(rgbToCSSResult);
+
 //from RGB to HEX
 let rgbObject = {
   r: 186,
