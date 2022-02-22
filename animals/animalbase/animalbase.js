@@ -13,6 +13,10 @@ const Animal = {
   age: 0,
 };
 
+const settings = {
+  sortDir: "asc",
+};
+
 function start() {
   console.log("ready");
   // TODO: Add event-listeners to filter and sort buttons
