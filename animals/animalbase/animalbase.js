@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
 // let animalType = "all";
-
+let filteredArray;
 // The prototype for all animals:
 const Animal = {
   name: "",
@@ -26,7 +26,9 @@ function start() {
   // sorting
   const sortBtns = document.querySelectorAll("[data-action=sort]");
   sortBtns.forEach((sortBtn) => {
-    sortBtn.addEventListener("click", buildSortedList);
+    sortBtn.addEventListener("click", function () {
+      sortList(filteredArray, this.dataset.sort);
+    });
   });
 
   loadJSON();
@@ -42,7 +44,7 @@ async function loadJSON() {
 
 function prepareObjects(jsonData) {
   allAnimals = jsonData.map(preapareObject);
-
+  filteredArray = allAnimals;
   // TODO: This might not be the function we want to call first
 
   //   if (document.querySelector("[data-filter=cat]").clicked == true) {
@@ -88,7 +90,6 @@ function displayAnimal(animal) {
 
 function filterList(type) {
   let list = allAnimals.filter(isAnimalType);
-
   function isAnimalType(animal) {
     if (animal.type === type) {
       return true;
@@ -100,8 +101,9 @@ function filterList(type) {
   if (list.length === 0) {
     list = allAnimals;
   }
-
-  displayList(list);
+  filteredArray = list;
+  console.log("here", filteredArray);
+  displayList(filteredArray);
 
   // if (type === "*") {
   //   displayList(allAnimals);
@@ -166,65 +168,89 @@ function filterList(type) {
 // }
 
 // SORTING
-function buildSortedList() {
-  let sortedList;
-
-  console.log("sorted List", sortedList);
-  if (this.dataset.sort === "name") {
-    console.log("sort name");
-    sortedList = sortAnimal(compareName);
-  } else if (this.dataset.sort === "type") {
-    sortedList = sortAnimal(compareType);
-  } else if (this.dataset.sort === "desc") {
-    sortedList = sortAnimal(compareDesc);
-  } else if (this.dataset.sort === "age") {
-    sortedList = sortAnimal(compareAge);
+function sortList(arr, propertyName) {
+  let list = arr.sort(isPropertyName);
+  console.log(list);
+  function isPropertyName(animalA, animalB) {
+    if (animalA[propertyName] < animalB[propertyName]) {
+      return -1;
+    } else {
+      return 1;
+    }
   }
-  // filteredList.sort(compareName);
-  // sortAnimal(compareName);
-  displayList(sortedList);
+
+  displayList(list);
+
+  // if (type === "*") {
+  //   displayList(allAnimals);
+  // }
 }
 
-function sortAnimal(sortAnimals) {
-  let sortedAnimals = allAnimals.sort(sortAnimals);
-  console.log(sortedAnimals);
-  return sortedAnimals;
-}
+// function buildSortedList() {
+//   let sortedList;
+//   let propertyName = this.dataset.sort;
+//   // let direction = (this.direction = "asc");
+//   console.log("sorted List", sortedList);
+//   if (propertyName === "name") {
+//     console.log("sort name");
+//     sortedList = sortAnimal(compareName);
+//   } else if (propertyName === "type") {
+//     sortedList = sortAnimal(compareType);
+//   } else if (propertyName === "desc") {
+//     sortedList = sortAnimal(compareDesc);
+//   } else if (propertyName === "age") {
+//     sortedList = sortAnimal(compareAge);
+//   }
+//   // reverseAnimal(sortedList);
+//   displayList(sortedList);
+// }
+
+// function sortAnimal(sortAnimals) {
+//   let sortedAnimals = filterList().sort(sortAnimals);
+//   console.log(sortedAnimals);
+//   return sortedAnimals;
+// }
+
+// function reverseAnimal(reverseAnimals) {
+//   let reversedAnimals = allAnimals.reverse(reverseAnimals);
+//   console.log(reversedAnimals);
+//   return reversedAnimals;
+// }
 
 // sort function
-function compareName(a, b) {
-  console.log("compare name");
+// function compareName(a, b) {
+//   console.log("compare name");
 
-  if (a.name < b.name) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+//   if (a.name < b.name) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
 
-function compareType(a, b) {
-  console.log("compare type");
-  if (a.type < b.type) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+// function compareType(a, b) {
+//   console.log("compare type");
+//   if (a.type < b.type) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
 
-function compareDesc(a, b) {
-  console.log("compare description");
-  if (a.desc < b.desc) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+// function compareDesc(a, b) {
+//   console.log("compare description");
+//   if (a.desc < b.desc) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
 
-function compareAge(a, b) {
-  console.log("compare age");
-  if (a.age < b.age) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+// function compareAge(a, b) {
+//   console.log("compare age");
+//   if (a.age < b.age) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
