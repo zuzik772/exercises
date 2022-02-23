@@ -14,7 +14,7 @@ const Animal = {
 };
 
 const settings = {
-  sortDir: "asc",
+  isSortDir: false,
 };
 
 function start() {
@@ -31,7 +31,17 @@ function start() {
   const sortBtns = document.querySelectorAll("[data-action=sort]");
   sortBtns.forEach((sortBtn) => {
     sortBtn.addEventListener("click", function () {
-      sortList(filteredArray, this.dataset.sort);
+      if (settings.isSortDir === true) {
+        settings.isSortDir = false;
+        console.log("its false");
+        sortList(filteredArray, this.dataset.sort, "asc");
+      } else {
+        settings.isSortDir = true;
+        console.log("its true");
+        sortList(filteredArray, this.dataset.sort, "desc");
+      }
+
+      // sortList(filteredArray, this.dataset.sort);
     });
   });
 
@@ -155,25 +165,12 @@ function filterList(type) {
 //   }
 // }
 
-// function isDragon(animal) {
-//   if (animal.type === "dragon") {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-// function isHorse(animal) {
-//   if (animal.type === "horse") {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
 // SORTING
-function sortList(arr, propertyName) {
+function sortList(arr, propertyName, direction) {
   let list = arr.sort(isPropertyName);
+  if (direction === "desc") {
+    list = list.reverse();
+  }
   console.log(list);
   function isPropertyName(animalA, animalB) {
     if (animalA[propertyName] < animalB[propertyName]) {

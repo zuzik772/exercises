@@ -26,3 +26,19 @@ function haveIDrowned(seeLevel, wetSuit, positionIsUp) {
   }
   return returnFlag;
 }
+
+// remainder to check divisible
+
+// is leap year
+function isLeapYear(year) {
+  let leapFlag = false;
+
+  if (year % 100 === 0) {
+    if (year % 400 === 0) {
+      leapFlag = true;
+    }
+  } else if (year % 4 === 0) {
+    leapFlag = true;
+  }
+  return leapFlag;
+}

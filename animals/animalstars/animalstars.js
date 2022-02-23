@@ -17,6 +17,7 @@ const Animal = {
   type: "",
   age: 0,
   star: false,
+
   // TODO: Add star
 };
 
