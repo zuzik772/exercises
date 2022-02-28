@@ -213,3 +213,4 @@ function tryToMakeWinner(selectedAnimal) {
     animal.winner = true;
   }
 }
+
